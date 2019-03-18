@@ -38,30 +38,23 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(empresasRequest $request)
+    public function store(Request $request)
     {
         $empresas = new Empresa;
 
-            $empresas->nuip            = $request->nuip;
-            $empresas->nombreCli       = $request->nombreCli;
-            $empresas->estadoEmp       = $request->estadoEmp;
-            $empresas->tipoIdEmp       = $request->tipoIdEmp;
-            $empresas->direccionEmp    = $request->direccionEmp;
-            $empresas->oficinaEmp      = $request->oficinaEmp;
-            $empresas->ciudadEmp       = $request->ciudadEmp;
-            $empresas->telefonoEmp     = $request->telefonoEmp;
-            $empresas->emailEmp        = $request->emailEmp;
-            $empresas->fechaIngEmp     = $request->fechaIngEmp;
-            $empresas->tipoEmp         = $request->tipoEmp;
-            $empresas->idEmpresaContraEmp = $request->idEmpresaContraEmp;
-            $empresas->idNIT           = $request->idNIT;
-            $empresas->nombreEmp       = $request->nombreEmp;
-            $empresas->estadoPago      = $request->estadoPago;
+            $empresas->nit = $request->nit;
+            $empresas->nombre = $request->nombre;
+            $empresas->nombre_contacto = $request->nombre_contacto;
+            $empresas->telefono_contacto = $request->telefono_contacto;
+            $empresas->email_contacto = $request->email_contacto;
+            $empresas->estado = $request->estado;
+            $empresas->id_usuario = $request->id_usuario;
+            $empresas->id_ciudad = $request->id_ciudad;
+            $empresas->direccion = $request->direccion;
+            $empresas->id_usuario = 1;
 
             $empresas->save();
 
-
-            
             return redirect("/createEmp/$empresas->id");
     }
 
@@ -100,25 +93,19 @@ class EmpresaController extends Controller
      * @param  \App\empresas  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function update(empresasRequest $request, $id)
+    public function update(Request $request, $id)
     {
             $empresas = Empresa::find($id);
 
-            $empresas->nuip            = $request->nuip;
-            $empresas->nombreCli       = $request->nombreCli;
-            $empresas->estadoEmp       = $request->estadoEmp;
-            $empresas->tipoIdEmp       = $request->tipoIdEmp;
-            $empresas->direccionEmp    = $request->direccionEmp;
-            $empresas->oficinaEmp      = $request->oficinaEmp;
-            $empresas->ciudadEmp       = $request->ciudadEmp;
-            $empresas->telefonoEmp     = $request->telefonoEmp;
-            $empresas->emailEmp        = $request->emailEmp;
-            $empresas->fechaIngEmp     = $request->fechaIngEmp;
-            $empresas->tipoEmp         = $request->tipoEmp;
-            $empresas->idEmpresaContraEmp = $request->idEmpresaContraEmp;
-            $empresas->idNIT           = $request->idNIT;
-            $empresas->nombreEmp       = $request->nombreEmp;
-            $empresas->estadoPago      = $request->estadoPago;
+            $empresas->nit = $request->nit;
+            $empresas->nombre = $request->nombre;
+            $empresas->nombre_contacto = $request->nombre_contacto;
+            $empresas->telefono_contacto = $request->telefono_contacto;
+            $empresas->email_contacto = $request->email_contacto;
+            $empresas->estado = $request->estado;
+            $empresas->id_usuario = $request->id_usuario;
+            $empresas->id_ciudad = $request->id_ciudad;
+            $empresas->direccion = $request->direccion;
 
             $empresas->save();
 

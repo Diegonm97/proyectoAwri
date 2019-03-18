@@ -16,7 +16,7 @@ class ClientesController extends Controller
      */
     public function index(Request $request)
     {   
-        $clientes = Clientes::search1($request->nuip)->orderbydesc('id')->paginate('8');
+        $clientes = Clientes::search1($request->identificacion)->orderbydesc('id')->paginate('8');
 
         return view('clientes.index', compact('clientes'));
     }
@@ -32,58 +32,36 @@ class ClientesController extends Controller
         return view('clientes.create',compact('porcentaje'));  
     }
 
-    public function createEmp($id)
-    {
-        
-        $empresa = Empresa::findOrFail($id);
-        return view('clientes.createEmp', compact('empresa'));
-    }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClientesRequest $request)
+    public function store(Request $request)
     {
         $clientes = new Clientes;
 
 
-            $clientes->nuip            = $request->nuip;
-            $clientes->nombreCli       = $request->nombreCli;
-            $clientes->apellidoCli     = $request->apellidoCli;
-            $clientes->estadoCli       = $request->estadoCli;
-            $clientes->tipoIdCli       = $request->tipoIdCli;
-            $clientes->direccionCli    = $request->direccionCli;
-            $clientes->oficinaCli      = $request->oficinaCli;
-            $clientes->ciudadCli       = $request->ciudadCli;
-            $clientes->telefonoCli     = $request->telefonoCli;
-            $clientes->emailCli        = $request->emailCli;
-            $clientes->fechaNacCli     = $request->fechaNacCli;
-            $clientes->salarioCli      = $request->salarioCli;
-            $clientes->rangoCli        = $request->rangoCli;
-            $clientes->EPScli          = $request->EPScli;
-            $clientes->nombreEPScli    = $request->nombreEPScli;
-            $clientes->ARLcli          = $request->ARLcli;
-            $clientes->nombreARLcli    = $request->nombreARLcli;
-            $clientes->AFPcli          = $request->AFPcli;
-            $clientes->nombreAFPcli    = $request->nombreAFPcli;
-            $clientes->cajaCompCli     = $request->cajaCompCli;
-            $clientes->nombreCajaCompCli     = $request->nombreCajaCompCli;
-            $clientes->beneficioCli    = $request->beneficioCli;
-            $clientes->administracionCli    = $request->administracionCli;
-            $clientes->inscripcionCli    = $request->inscripcionCli;
-            $clientes->activacionCli    = $request->activacionCli;
-            $clientes->EMICli    = $request->EMICli;
-            $clientes->sevFuneCli    = $request->sevFuneCli;
-            $clientes->fechaIngCli     = $request->fechaIngCli;
-            $clientes->tipoCli     = $request->tipoCli;
-            $clientes->idEmpresaContraCli = $request->idEmpresaContraCli;
-            $clientes->idNIT           = $request->idNIT;
-            $clientes->nombreEmpCli    = $request->nombreEmpCli;
-            $clientes->UPCadicCli    = $request->UPCadicCli;
-            $clientes->estadoPago      = $request->estadoPago;
+            $clientes->identificacion = $request->identificacion;
+            $clientes->nombre = $request->nombre;
+            $clientes->apellido = $request->apellido;
+            $clientes->tipo_id = $request->tipo_id;
+            $clientes->salario = $request->salario;
+            $clientes->ciudad = $request->ciudad;
+            $clientes->direccion = $request->direccion;
+            $clientes->email = $request->email;
+            $clientes->telefono = $request->telefono;
+            $clientes->estado = $request->estado;
+            $clientes->id_usuario = $request->id_usuario;
+            $clienets->id_eps = $request->id_eps;
+            $clientes->id_arl = $request->id_arl;
+            $clientes->id_cjc = $request->id_cjc;
+            $cliente->id_afp = $request->id_afp;
+            $clientes->tipo_cliente = $request->tipo_cliente;
+            $clientes->fecha_ingreso = $request->fecha_ingreso;
+            $clientes->fecha_nacimiento = $request->fecha_nacimiento;
+
 
             $clientes->save();
 

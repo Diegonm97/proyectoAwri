@@ -23,7 +23,7 @@
                                 <p class="category">Aqui se muestran datos de los clientes registrados</p>
                             {!!Form::open(['route'=>'clientes.index', 'method'=>'GET','class'=>'navbar-form'])!!}
                                 <div class="form group">
-                                    {!!Form::number('nuip',null,['class'=>'form-control' , 'placeholder'=>'Buscar..', 'aria-describedby'=>'search'])!!}
+                                    {!!Form::number('identificacion',null,['class'=>'form-control' , 'placeholder'=>'Buscar..', 'aria-describedby'=>'search'])!!}
                                     
                                     
                                 </div>
@@ -35,25 +35,21 @@
                                     <div class="container">
                                         <div class="row">
                                     <thead>
-                                          	<th>nuip</th>
+                                          	<th>Identficación</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
                                         	<th>Estado</th>
-                                        	<th>Tipo Cliente</th>
                                             <th>Telefono</th>
-                                        	<th>Rango</th>
                                         	<th>Acción</th>
                                     </thead>
                                     <tbody>
                                         @foreach ($clientes as $cliente)
                                         <tr>
-                                        	<th>{{$cliente->nuip}}</th>
-                                            <th>{{$cliente->nombreCli}}</th>
-                                            <th>{{$cliente->apellidoCli}}</th>
-                                            <th>{{$cliente->estadoCli}}</th>
-                                            <th>{{$cliente->tipoIdCli}}</th>
-                                            <th>{{$cliente->telefonoCli}}</th>
-                                            <th>{{$cliente->rangoCli}}</th>
+                                        	<th>{{$cliente->identificacion}}</th>
+                                            <th>{{$cliente->nombre}}</th>
+                                            <th>{{$cliente->apellido}}</th>
+                                            <th>{{$cliente->estado}}</th>
+                                            <th>{{$cliente->telefono}}</th>
                                             <th>
                                                 @can('Clientes.show')
                                                 <a href="{{route('clientes.show', $cliente->id)}}"><i class="far fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

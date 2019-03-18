@@ -103,5 +103,10 @@ Route::middleware(['auth'])->group(function() {
 		->middleware('permission:Configuracion.edit');
 	Route::get('configuracion/{id}/edit', 'configuracionController@edit')->name('configuracion.edit')
 		->middleware('permission:Configuracion.edit');
+
+	//ciudades
+
+	Route::get('ciudad', 'ciudadController@index')->name('ciudad.index')
+		->middleware('permission:Ciudad.index');
 	
 });

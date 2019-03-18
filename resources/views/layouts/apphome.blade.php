@@ -51,22 +51,22 @@
             </div>
 
             <ul class="nav">
-                
-                <li>
-                    <a href="{{route('pago.index')}}">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Pagos</p>
-                    </a>
-                </li>
 
-                @can('Clientes.index')
+                @role('administrador')
                 <li>
                     <a href="{{route('clientes.index')}}">
                         <i class="pe-7s-user"></i>
                         <p>Clientes</p>
                     </a>
                 </li>
-                @endcan
+
+                <li>
+                    <a href="{{route('ciudad.index')}}">
+                        <i class="pe-7s-user"></i>
+                        <p>Ciudades</p>
+                    </a>
+                </li>
+                @endrole
                 
                 @can('Empresas.index')
                 <li>
